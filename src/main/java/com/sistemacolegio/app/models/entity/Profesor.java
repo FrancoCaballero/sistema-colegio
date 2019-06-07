@@ -2,7 +2,6 @@ package com.sistemacolegio.app.models.entity;
 
 import java.io.Serializable;
 import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -11,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -39,6 +39,18 @@ public class Profesor implements Serializable {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "fk_colegio")
 	private Colegio colegio;
+
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "fk_asignatura")
+	private Asignatura asignaturaProfesor;
+
+	public Asignatura getAsignaturaProfesor() {
+		return asignaturaProfesor;
+	}
+
+	public void setAsignaturaProfesor(Asignatura asignaturaProfesor) {
+		this.asignaturaProfesor = asignaturaProfesor;
+	}
 
 	public Long getId() {
 		return id;
