@@ -69,6 +69,8 @@ public class ProfesorController {
 		model.put("profesor", profesor);
 		model.put("titulo", "Editar Profesor");
 		model.put("boton", "Editar Profesor");
+		model.put("colegios", colegioService.findAllColegio());
+		model.put("asignaturas", colegioService.findAllAsignatura());
 		return "form-profesor";
 	}
 	
